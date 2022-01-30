@@ -29,7 +29,7 @@ impl State {
         let from: usize = mv.from.clone().into();
         let to  : usize = mv.to  .clone().into();
 
-        // Проверяем, что стержень не пустой
+        // Проверяем, что исходный стержень не пустой
         let movable = self.rods[from]
             .last()
             .ok_or_else(|| io::Error::from(io::ErrorKind::Other))?;

@@ -24,9 +24,9 @@ impl Move {
         let from = if top0 > top1 { rod0 } else { rod1 };
         let top = state.top_on(&from);
         let to = if top % 2 == 0 {
-            from.clone().inc() // Чётное двигаем вправо
+            from.clone().clockwise() // Чётное двигаем по часовой стрелке
         } else {
-            from.clone().dec() // Нечётное двигаем влево
+            from.clone().counter_clockwise() // Нечётное двигаем против часовой стрелки
         };
 
         Some(Move { from, to })

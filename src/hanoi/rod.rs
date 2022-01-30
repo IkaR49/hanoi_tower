@@ -11,14 +11,14 @@ impl Rod {
     pub const fn count() -> usize {
         3
     }
-    pub const fn inc(self) -> Rod {
+    pub const fn clockwise(self) -> Rod {
         match self {
             Rod::Rod1 => Rod::Rod2,
             Rod::Rod2 => Rod::Rod3,
             Rod::Rod3 => Rod::Rod1,
         }
     }
-    pub const fn dec(self) -> Rod {
+    pub const fn counter_clockwise(self) -> Rod {
         match self {
             Rod::Rod1 => Rod::Rod3,
             Rod::Rod2 => Rod::Rod1,
