@@ -9,10 +9,8 @@ pub trait Render {
     }
 }
 
-mod graphic;
 mod null;
 mod text;
 
-pub use graphic::GraphicRenderer;
 pub use null::NullRenderer;
 pub use text::TextRenderer;

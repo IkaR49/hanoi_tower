@@ -4,7 +4,7 @@ use clap::{Arg, App, PossibleValue};
 mod hanoi;
 mod render;
 
-use render::{Render, NullRenderer, TextRenderer, GraphicRenderer};
+use render::{Render, NullRenderer, TextRenderer};
 use hanoi::{Disk, State, Move};
 
 fn main() -> io::Result<()> {
@@ -33,10 +33,7 @@ fn main() -> io::Result<()> {
                 PossibleValue::new("text")
                     .help("Show moves and states in console"),
                 PossibleValue::new("null")
-                    .help("Do not show moves and states"),
-                PossibleValue::new("graphic")
-                    .hide(true)
-                    .help("Use Vulkan render for showing moves and states")])
+                    .help("Do not show moves and states")])
             .default_value("text")
             .default_missing_value("graphic"))
 
@@ -50,7 +47,6 @@ fn main() -> io::Result<()> {
     let mut render: Box<dyn Render> = match matches.value_of("render") {
         Some("text")    => Box::new(TextRenderer::new()),
         Some("null")    => Box::new(NullRenderer::new()),
-        Some("graphic") => Box::new(GraphicRenderer::new()),
         _ => panic!("Unknown type of render"),
     };
 
