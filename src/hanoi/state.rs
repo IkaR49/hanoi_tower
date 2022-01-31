@@ -10,10 +10,14 @@ impl State {
         const MAX_COUNT: Disk = Disk::BITS as Disk;
         const MIN_COUNT: Disk = 1;
         if MIN_COUNT > count || count > MAX_COUNT {
-            return Err(io::Error::from(io::ErrorKind::InvalidInput));//, "You must use count of disks in range [{}; {}]", MIN_COUNT, MAX_COUNT);
+            return Err(io::Error::from(io::ErrorKind::InvalidInput));
         }
 
-        let mut rods = [Vec::with_capacity(count as usize), Vec::with_capacity(count as usize), Vec::with_capacity(count as usize)];
+        let mut rods = [
+            Vec::with_capacity(count as usize),
+            Vec::with_capacity(count as usize),
+            Vec::with_capacity(count as usize)
+        ];
         for i in 1..=count {
             rods[0].push(i);
         }

@@ -1,5 +1,4 @@
-mod disk;
-pub use disk::Disk;
+pub type Disk = isize;
 
 mod rod;
 pub use rod::Rod;
